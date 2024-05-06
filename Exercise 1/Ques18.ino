@@ -1,11 +1,11 @@
-const int sensorPin = A1;
+const int sensor = A1;
 
 void setup() {
-  Serial.begin(9600); // Initialize serial communication
+  Serial.begin(9600);
 }
 
 void loop() {
-  int sensorValue = analogRead(sensorPin); // Read sensor value
-  Serial.println(sensorValue); // Print sensor value to serial monitor
-  delay(100); // Delay for stability
+  int sensor_value = analogRead(sensor); // Read IR sensor value
+  Serial.println(sensor_value); // Print sensor value to serial monitor
+  delay(200);
 }
