@@ -1,16 +1,18 @@
-int R_LED = 3; //LED to glowwith varying potentiometer  
-int Analog_in = A2; //analog port for potentiometer
+int value;
+int outputValue = 0;
 
-void setup() {
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(9, OUTPUT);
   Serial.begin(9600);
-  pinMode(R_LED, OUTPUT);
 }
 
-void loop() {
-  int R_Intensity= analogRead(Analog_in); //Reading potentiometer data
-
-  int Analog_value = map(Analog_in, 0, 1023, 0, 255);
-  analogWrite(R_LED,R_Intensity);//give potentiometer intensity to led
-  Serial.println(R_Intensity);//print potentiometer intensity value to led
-  delay(10);
+void loop()
+{
+  value = analogRead(A2);
+  outputValue = map(value, 0, 1023, 0, 255);
+  analogWrite(9, outputValue);
+  Serial.println(outputValue);
+  delay(2); 
 }
